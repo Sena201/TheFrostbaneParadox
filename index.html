@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Frostbane Paradox</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Novel Website - Home</title>
+<style>
+  body {
+    background: #000; /* dark background for neon effect */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* full viewport height */
+    margin: 0;
+  }
+  .neon-box {
+    padding: 40px 80px;
+    border: 3px solid #0ff; /* cyan neon border */
+    border-radius: 15px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0ff;
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+  }
+  .neon-box:hover {
+    color: #0ff;
+    box-shadow:
+      0 0 10px #0ff,
+      0 0 30px #0ff,
+      0 0 50px #0ff,
+      0 0 80px #0ff;
+    transform: scale(1.05);
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
 </head>
-<body class="home">
-    <div class="overlay">
-        <h1>The Frostbane Paradox</h1>
-        <h2>by Izumi Duwadi</h2>
-        <a href="saga1.html" class="saga-link">Saga 1: The Timebreaker’s Call</a>
-    </div>
+<body>
+
+<a href="saga1.html" class="neon-box">Saga 1</a>
+
 </body>
 </html>
