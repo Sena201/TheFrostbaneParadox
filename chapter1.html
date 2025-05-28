@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chapter 1 - The Heart That Doesn’t Beat</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
   <style>
     body {
       background: #000;
@@ -25,18 +27,18 @@
     }
 
     .neon-box {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 10px;
+      padding: 10px 18px;
       border: 2px solid #f00;
       color: #f00;
       font-weight: bold;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 18px;
       text-shadow: 0 0 5px #f00, 0 0 10px #f00;
       box-shadow: 0 0 10px #f00, 0 0 20px #f00 inset;
       border-radius: 8px;
       transition: 0.3s ease;
+      position: absolute;
+      z-index: 100;
     }
 
     .neon-box:hover {
@@ -45,20 +47,14 @@
       box-shadow: 0 0 20px #f00, 0 0 30px #f00 inset;
     }
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      position: absolute;
+    .home-btn {
       top: 20px;
-      left: 0;
-      right: 0;
-      padding: 0 30px;
+      left: 20px;
     }
 
-    .compass-icon {
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 10px;
+    .back-btn {
+      top: 20px;
+      right: 20px;
     }
 
     .scroll-top-btn {
@@ -89,12 +85,9 @@
 </head>
 <body>
 
-<div class="nav-container">
-  <a href="index.html" class="neon-box">🏠 Home</a>
-  <a href="saga1.html" class="neon-box">📖 Back to Chapters</a>
-</div>
-
-<div class="compass-icon">🧭</div>
+<!-- Navigation Neon Buttons -->
+<a href="index.html" class="neon-box home-btn">🏠 Home</a>
+<a href="saga1.html" class="neon-box back-btn">📖 Back to Chapters</a>
 
 <h1>Chapter 1: The Heart That Doesn’t Beat</h1>
 
