@@ -7,13 +7,17 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+  /* Base Styles */
   body {
     background: #0d0d0d;
     color: #c0c0c0;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 40px 20px 80px;
+    padding: 60px 20px 100px;
     line-height: 1.7;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     min-height: 100vh;
   }
@@ -23,16 +27,16 @@
     font-weight: 700;
     font-size: 28px;
     margin-bottom: 24px;
+    text-align: center;
   }
 
   p {
     color: silver;
     font-size: 22px;
-    max-width: 900px;
     margin-bottom: 18px;
   }
 
-  /* Neon box style */
+  /* Neon Box Base */
   .neon-box {
     position: fixed;
     padding: 12px 20px;
@@ -41,11 +45,15 @@
     box-shadow:
       0 0 6px #00ffff,
       0 0 12px #00ffff,
-      0 0 18px #00ffff,
-      0 0 24px #00ffff;
+      0 0 18px #00ffff;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease;
+    user-select: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .neon-box:hover {
@@ -53,20 +61,21 @@
     box-shadow:
       0 0 10px #00cccc,
       0 0 20px #00cccc,
-      0 0 30px #00cccc,
-      0 0 40px #00cccc;
+      0 0 30px #00cccc;
     color: white;
   }
 
-  /* Corners for neon boxes */
+  /* Corner positions */
   #home-btn {
     top: 20px;
     left: 20px;
+    font-size: 20px;
   }
 
   #back-to-top {
     bottom: 20px;
     right: 20px;
+    font-size: 24px;
   }
 
   #chapter-nav {
@@ -76,23 +85,27 @@
     gap: 12px;
   }
 
-  #chapter-nav button {
-    background: none;
-    border: none;
-    border-radius: 12px;
+  /* Chapter nav buttons */
+  .chapter-nav-btn {
     padding: 10px 18px;
     font-size: 16px;
+    border: none;
+    background: none;
     color: #00ffff;
-    text-transform: uppercase;
     font-weight: 700;
+    border-radius: 12px;
     box-shadow:
       0 0 6px #00ffff,
       0 0 12px #00ffff;
     cursor: pointer;
-    transition: background 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
   }
 
-  #chapter-nav button:hover {
+  .chapter-nav-btn:hover {
     background: #00cccc;
     box-shadow:
       0 0 10px #00cccc,
@@ -100,7 +113,7 @@
     color: white;
   }
 
-  /* Next button special style: full neon box with white text, dimmer */
+  /* Next button full neon box with dimmer brightness and white text */
   #next-btn {
     background: #00ffffcc;
     color: white !important;
@@ -115,6 +128,15 @@
       0 0 14px #007777,
       0 0 28px #007777;
   }
+
+  /* Disabled previous button */
+  #prev-chapter.disabled {
+    color: #00999999;
+    cursor: default;
+    box-shadow: none;
+    background: none;
+    pointer-events: none;
+  }
 </style>
 </head>
 <body>
@@ -124,9 +146,9 @@
 
 <!-- Chapter Navigation -->
 <div id="chapter-nav">
-  <a href="saga1.html" id="prev-btn" class="neon-box" style="box-shadow:none; border:none; padding:0; font-weight:normal; color:#00ffff; background:none; text-decoration:none; font-size:16px;">← Back to Saga</a>
-  <a href="chapter0.html" id="prev-chapter" class="neon-box" style="padding:10px 18px; font-size:16px; text-decoration:none; border:none; box-shadow:none; color:#00cccc; cursor:not-allowed; opacity:0.5;">Previous</a>
-  <a href="chapter2.html" id="next-btn">Next</a>
+  <a href="saga1.html" class="chapter-nav-btn" aria-label="Back to Saga">← Saga</a>
+  <a href="#" class="chapter-nav-btn disabled" id="prev-chapter" aria-label="Previous Chapter">Previous</a>
+  <a href="chapter2.html" class="chapter-nav-btn" id="next-btn" aria-label="Next Chapter">Next</a>
 </div>
 
 <!-- Title -->
@@ -134,79 +156,79 @@
 
 <!-- Chapter Text -->
 <p>
-The city never slept, but neither did it breathe. Neon veins pulsed beneath steel skies, and endless towers scraped at the electric haze, casting cold shadows over the faceless crowds. Amid the mechanical hum, a lone figure walked—his steps steady, unfeeling.
+  The city never slept, but neither did it breathe. Neon veins pulsed beneath steel skies, and endless towers scraped at the electric haze, casting cold shadows over the faceless crowds. Amid the mechanical hum, a lone figure walked—his steps steady, unfeeling.
 </p>
 
 <p>
-Sena Frostbane moved like a ghost in the futuristic sprawl, seventeen years old but carrying a weight far beyond his years. His heart did not beat like others’. It throbbed with a hollow ache, a curse stitched into its core that silenced every spark of joy, warmth, and hope. He could feel only one thing: pain.
+  Sena Frostbane moved like a ghost in the futuristic sprawl, seventeen years old but carrying a weight far beyond his years. His heart did not beat like others’. It throbbed with a hollow ache, a curse stitched into its core that silenced every spark of joy, warmth, and hope. He could feel only one thing: pain.
 </p>
 
 <p>
-A child screamed somewhere nearby—caught beneath a malfunctioning drone’s arm. Without hesitation, Sena darted forward, ignoring the stab of agony slicing through his chest. With a swift motion, he disabled the drone, cradling the frightened boy as he disappeared into the crowd. No smile met his gaze, only the cold sting of suffering.
+  A child screamed somewhere nearby—caught beneath a malfunctioning drone’s arm. Without hesitation, Sena darted forward, ignoring the stab of agony slicing through his chest. With a swift motion, he disabled the drone, cradling the frightened boy as he disappeared into the crowd. No smile met his gaze, only the cold sting of suffering.
 </p>
 
 <p>
-What is happiness? he wondered, staring into the city’s dim glow. A word I have forgotten.
+  What is happiness? he wondered, staring into the city’s dim glow. A word I have forgotten.
 </p>
 
 <p>
-Memories teased the edges of his mind—fragmented flashes from the day the curse took hold. A relic, pulsing with dark light. An explosion of time unraveling. And then, emptiness.
+  Memories teased the edges of his mind—fragmented flashes from the day the curse took hold. A relic, pulsing with dark light. An explosion of time unraveling. And then, emptiness.
 </p>
 
 <p>
-Tonight, the relic’s echo called to him again.
+  Tonight, the relic’s echo called to him again.
 </p>
 
 <p>
-Beneath the city’s glittering facade, in the shadowed depths where outlaws and outcasts gathered, the Auction of Shadows was about to begin. Here, forbidden treasures from fractured timelines were bartered in whispers and glances. Sena moved through the crowd like a shadow, his sharp eyes scanning the displays.
+  Beneath the city’s glittering facade, in the shadowed depths where outlaws and outcasts gathered, the Auction of Shadows was about to begin. Here, forbidden treasures from fractured timelines were bartered in whispers and glances. Sena moved through the crowd like a shadow, his sharp eyes scanning the displays.
 </p>
 
 <p>
-When the final item was brought forward—a small obsidian chest inlaid with gold filigree and sealed with glowing runes—Sena’s breath caught. The air shifted. The compass inside thrummed with cursed energy, its needle spinning erratically.
+  When the final item was brought forward—a small obsidian chest inlaid with gold filigree and sealed with glowing runes—Sena’s breath caught. The air shifted. The compass inside thrummed with cursed energy, its needle spinning erratically.
 </p>
 
 <p>
-"Property of the Forgotten Sea," the auctioneer intoned. "Do not awaken."
+  "Property of the Forgotten Sea," the auctioneer intoned. "Do not awaken."
 </p>
 
 <p>
-Yet, Sena’s hand was already outstretched. The moment his fingers brushed the chest, a surge of pain exploded through his heart, sharper than ever before. But still, he took it.
+  Yet, Sena’s hand was already outstretched. The moment his fingers brushed the chest, a surge of pain exploded through his heart, sharper than ever before. But still, he took it.
 </p>
 
 <p>
-The compass, Kofa, bonded instantly. It hummed in his palm, alive with dark power. The world around him fractured—the auction hall dissolved into waves of shifting time. Walls became tides, faces turned to echoes, and the floor slipped beneath his feet.
+  The compass, Kofa, bonded instantly. It hummed in his palm, alive with dark power. The world around him fractured—the auction hall dissolved into waves of shifting time. Walls became tides, faces turned to echoes, and the floor slipped beneath his feet.
 </p>
 
 <p>
-His breath caught. Steel and neon vanished.
+  His breath caught. Steel and neon vanished.
 </p>
 
 <p>
-The sea called.
+  The sea called.
 </p>
 
 <p>
-When Sena opened his eyes, salt stung his lips. He lay on a rocky shore under a blazing sun that felt both strange and familiar. In his hand, Kofa vibrated wildly, its needle spinning toward a horizon unlike any he’d ever seen.
+  When Sena opened his eyes, salt stung his lips. He lay on a rocky shore under a blazing sun that felt both strange and familiar. In his hand, Kofa vibrated wildly, its needle spinning toward a horizon unlike any he’d ever seen.
 </p>
 
 <p>
-Islands—some wild and ancient, others glowing with future light—rose from the mist.
+  Islands—some wild and ancient, others glowing with future light—rose from the mist.
 </p>
 
 <p>
-Sena’s voice was a whisper against the crashing waves:<br />
-<em>“This isn’t my time.”</em>
+  Sena’s voice was a whisper against the crashing waves:<br />
+  <em>“This isn’t my time.”</em>
 </p>
 
 <!-- Back to Top Button -->
 <button class="neon-box" id="back-to-top" aria-label="Back to Top" title="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">▲</button>
 
 <script>
-  // Optional: show/hide back to top button on scroll
+  // Show/hide back to top button on scroll
   const backToTopBtn = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-      backToTopBtn.style.display = 'block';
+      backToTopBtn.style.display = 'flex';
     } else {
       backToTopBtn.style.display = 'none';
     }
