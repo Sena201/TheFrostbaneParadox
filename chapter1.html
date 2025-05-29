@@ -12,7 +12,7 @@
     color: #c0c0c0;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 60px 20px 120px; /* bottom padding bigger for buttons */
+    padding: 60px 20px 120px;
     line-height: 1.7;
     max-width: 900px;
     margin-left: auto;
@@ -35,7 +35,7 @@
     margin-bottom: 18px;
   }
 
-  /* Neon Box Base */
+  /* Neon Box Base for top buttons */
   .neon-box {
     padding: 12px 20px;
     border: 2px solid #00ffff;
@@ -77,67 +77,6 @@
     font-size: 20px;
   }
 
-  /* Bottom center container for previous and next */
-  #bottom-center-container {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 16px;
-    z-index: 1000;
-  }
-
-  /* Previous and Next buttons */
-  #prev-chapter, #next-chapter {
-    padding: 12px 28px;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    user-select: none;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-      0 0 6px #00ffff,
-      0 0 12px #00ffff;
-    color: #00ffff;
-    background: transparent;
-    transition: all 0.3s ease;
-  }
-  #prev-chapter:hover {
-    background: #00cccc;
-    color: white;
-    box-shadow:
-      0 0 10px #00cccc,
-      0 0 20px #00cccc;
-  }
-  #next-chapter {
-    background: #00ffffcc;
-    color: white !important;
-    box-shadow:
-      0 0 8px #00bbbb,
-      0 0 16px #00bbbb;
-  }
-  #next-chapter:hover {
-    background: #00aaaa;
-    box-shadow:
-      0 0 14px #007777,
-      0 0 28px #007777;
-  }
-
-  /* Disabled previous button */
-  #prev-chapter.disabled {
-    color: #00999999;
-    cursor: default;
-    box-shadow: none;
-    background: none;
-    pointer-events: none;
-  }
-
   /* Back to Top Button */
   #back-to-top {
     position: fixed;
@@ -145,6 +84,77 @@
     right: 20px;
     font-size: 24px;
     padding: 12px 16px;
+    cursor: pointer;
+  }
+
+  /* Neon Previous/Next Buttons with arrows */
+  #bottom-center-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+  }
+
+  .nav-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #111;
+    border-radius: 30px;
+    border: 2px solid #0ff;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow:
+      0 0 8px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff88;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background: #00ffffaa;
+    box-shadow:
+      0 0 12px #00ffff,
+      0 0 30px #00ffff,
+      0 0 60px #00ffffcc;
+    color: #fff;
+  }
+
+  .nav-btn.disabled {
+    opacity: 0.4;
+    cursor: default;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  /* Left arrow for Previous */
+  .nav-btn.prev::before {
+    content: '◀';
+    margin-right: 12px;
+    font-size: 20px;
+    color: #0ff;
+    text-shadow:
+      0 0 6px #0ff,
+      0 0 12px #0ff;
+  }
+
+  /* Right arrow for Next */
+  .nav-btn.next::after {
+    content: '▶';
+    margin-left: 12px;
+    font-size: 20px;
+    color: #0ff;
+    text-shadow:
+      0 0 6px #0ff,
+      0 0 12px #0ff;
   }
 </style>
 </head>
@@ -212,8 +222,8 @@
 
 <!-- Bottom center previous and next -->
 <div id="bottom-center-container">
-  <a href="#" class="neon-box disabled" id="prev-chapter" aria-label="Previous Chapter">Previous</a>
-  <a href="chapter2.html" class="neon-box" id="next-chapter" aria-label="Next Chapter">Next</a>
+  <a href="#" class="nav-btn prev disabled" aria-label="Previous Chapter">Previous</a>
+  <a href="chapter2.html" class="nav-btn next" aria-label="Next Chapter">Next</a>
 </div>
 
 <!-- Back to Top Button -->
@@ -223,12 +233,13 @@
   // Show/hide back to top button on scroll
   const backToTopBtn = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
+    if (window.scrollY > 300) {
       backToTopBtn.style.display = 'flex';
     } else {
       backToTopBtn.style.display = 'none';
     }
   });
+  // Hide initially
   backToTopBtn.style.display = 'none';
 </script>
 
