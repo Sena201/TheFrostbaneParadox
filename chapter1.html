@@ -13,7 +13,7 @@
       font-size: 22px;
       line-height: 1.8;
       margin: 0;
-      padding: 100px 20px 20px 20px;
+      padding: 100px 20px 60px 20px;
       max-width: 800px;
       margin: auto;
     }
@@ -32,8 +32,8 @@
       font-weight: bold;
       text-decoration: none;
       font-size: 18px;
-      text-shadow: 0 0 5px #f00, 0 0 10px #f00;
-      box-shadow: 0 0 10px #f00, 0 0 20px #f00 inset;
+      text-shadow: 0 0 3px #f00, 0 0 5px #f00;
+      box-shadow: 0 0 6px #f00, 0 0 12px #f00 inset;
       border-radius: 8px;
       transition: 0.3s ease;
       background-color: transparent;
@@ -67,8 +67,8 @@
       font-size: 18px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 0 10px #f00;
-      text-shadow: 0 0 5px #f00;
+      box-shadow: 0 0 6px #f00;
+      text-shadow: 0 0 3px #f00;
       transition: 0.3s;
     }
 
@@ -83,6 +83,39 @@
       opacity: 0.3;
     }
 
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+
+    .nav-buttons a {
+      padding: 12px 22px;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+
+    .prev-btn {
+      border: 2px solid #f00;
+      color: #f00;
+      background: transparent;
+      text-shadow: 0 0 3px #f00;
+      box-shadow: 0 0 6px #f00 inset;
+    }
+
+    .next-btn {
+      border: 2px solid #f00;
+      background-color: #f00;
+      color: white;
+      text-shadow: 0 0 3px white;
+      box-shadow: 0 0 6px #f00;
+    }
+
+    .next-btn:hover, .prev-btn:hover {
+      opacity: 0.8;
+    }
+
     @media screen and (max-width: 600px) {
       body {
         padding: 80px 10px;
@@ -91,6 +124,11 @@
       .neon-box {
         font-size: 16px;
         padding: 8px 14px;
+      }
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
       }
     }
   </style>
@@ -142,6 +180,11 @@
   <p>Islands—some wild and ancient, others glowing with future light—rose from the mist.</p>
 
   <p>Sena’s voice was a whisper against the crashing waves:<br><em>“This isn’t my time.”</em></p>
+
+  <div class="nav-buttons">
+    <a href="#" class="prev-btn">⬅ Previous</a>
+    <a href="#" class="next-btn">Next ➡</a>
+  </div>
 
   <button class="scroll-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">⬆ Top</button>
 </body>
