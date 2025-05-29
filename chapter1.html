@@ -1,142 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chapter 1 - The Heart That Doesn’t Beat</title>
-  <link rel="icon" href="compass-icon.png" type="image/png" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d0d0d;
-      color: #c0c0c0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      line-height: 1.6;
-      padding: 20px 30px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Heart That Doesn’t Beat - Chapter 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    header {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 15px 0;
-      background: #111;
-      box-shadow: 0 0 15px #0ff4;
-      margin: 0 -30px 30px -30px;
-    }
+  body {
+    background: #0d0d0d;
+    color: #c0c0c0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 40px 20px 80px;
+    line-height: 1.7;
+    position: relative;
+    min-height: 100vh;
+  }
 
-    .neon-button {
-      border: 2px solid #00ffff;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 10px;
-      background: transparent;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
+  h1.title {
+    color: gold;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
 
-    .neon-button:hover {
-      background: #00ffff33;
-      box-shadow: 0 0 10px #00ffffaa, 0 0 20px #00ffff66;
-    }
+  p {
+    color: silver;
+    font-size: 22px;
+    max-width: 900px;
+    margin-bottom: 18px;
+  }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #111;
-      border-radius: 15px;
-      padding: 30px 40px;
-      box-shadow: 0 0 25px #00ffff66;
-      color: #c0c0c0;
-      font-size: 20px;
-    }
+  /* Neon box style */
+  .neon-box {
+    position: fixed;
+    padding: 12px 20px;
+    border: 2px solid #00ffff;
+    border-radius: 12px;
+    box-shadow:
+      0 0 6px #00ffff,
+      0 0 12px #00ffff,
+      0 0 18px #00ffff,
+      0 0 24px #00ffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
 
-    main h1 {
-      font-size: 36px;
-      font-weight: bold;
-      color: gold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+  .neon-box:hover {
+    background: #00cccc;
+    box-shadow:
+      0 0 10px #00cccc,
+      0 0 20px #00cccc,
+      0 0 30px #00cccc,
+      0 0 40px #00cccc;
+    color: white;
+  }
 
-    main p {
-      margin-bottom: 1.2em;
-    }
+  /* Corners for neon boxes */
+  #home-btn {
+    top: 20px;
+    left: 20px;
+  }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #111;
-      font-size: 14px;
-      color: #666;
-      margin-top: auto;
-      box-shadow: 0 0 15px #0ff4;
-    }
+  #back-to-top {
+    bottom: 20px;
+    right: 20px;
+  }
 
-    @media (max-width: 600px) {
-      main {
-        font-size: 18px;
-        padding: 20px;
-      }
-      main h1 {
-        font-size: 28px;
-      }
-      body {
-        padding: 10px 15px;
-      }
-    }
-  </style>
+  #chapter-nav {
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  #chapter-nav button {
+    background: none;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 16px;
+    color: #00ffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow:
+      0 0 6px #00ffff,
+      0 0 12px #00ffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  #chapter-nav button:hover {
+    background: #00cccc;
+    box-shadow:
+      0 0 10px #00cccc,
+      0 0 20px #00cccc;
+    color: white;
+  }
+
+  /* Next button special style: full neon box with white text, dimmer */
+  #next-btn {
+    background: #00ffffcc;
+    color: white !important;
+    box-shadow:
+      0 0 8px #00bbbb,
+      0 0 16px #00bbbb;
+  }
+
+  #next-btn:hover {
+    background: #00aaaa;
+    box-shadow:
+      0 0 14px #007777,
+      0 0 28px #007777;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="neon-button">🏴‍☠️ Home</a>
-  </header>
 
-  <main>
-    <h1>The Heart That Doesn’t Beat</h1>
+<!-- Home Button -->
+<a href="index.html" class="neon-box" id="home-btn" aria-label="Go to Home">Home</a>
 
-    <p>The city never slept, but neither did it breathe. Neon veins pulsed beneath steel skies, and endless towers scraped at the electric haze, casting cold shadows over the faceless crowds. Amid the mechanical hum, a lone figure walked—his steps steady, unfeeling.</p>
+<!-- Chapter Navigation -->
+<div id="chapter-nav">
+  <a href="saga1.html" id="prev-btn" class="neon-box" style="box-shadow:none; border:none; padding:0; font-weight:normal; color:#00ffff; background:none; text-decoration:none; font-size:16px;">← Back to Saga</a>
+  <a href="chapter0.html" id="prev-chapter" class="neon-box" style="padding:10px 18px; font-size:16px; text-decoration:none; border:none; box-shadow:none; color:#00cccc; cursor:not-allowed; opacity:0.5;">Previous</a>
+  <a href="chapter2.html" id="next-btn">Next</a>
+</div>
 
-    <p>Sena Frostbane moved like a ghost in the futuristic sprawl, seventeen years old but carrying a weight far beyond his years. His heart did not beat like others’. It throbbed with a hollow ache, a curse stitched into its core that silenced every spark of joy, warmth, and hope. He could feel only one thing: pain.</p>
+<!-- Title -->
+<h1 class="title">The Heart That Doesn’t Beat</h1>
 
-    <p>A child screamed somewhere nearby—caught beneath a malfunctioning drone’s arm. Without hesitation, Sena darted forward, ignoring the stab of agony slicing through his chest. With a swift motion, he disabled the drone, cradling the frightened boy as he disappeared into the crowd. No smile met his gaze, only the cold sting of suffering.</p>
+<!-- Chapter Text -->
+<p>
+The city never slept, but neither did it breathe. Neon veins pulsed beneath steel skies, and endless towers scraped at the electric haze, casting cold shadows over the faceless crowds. Amid the mechanical hum, a lone figure walked—his steps steady, unfeeling.
+</p>
 
-    <p>What is happiness? he wondered, staring into the city’s dim glow. A word I have forgotten.</p>
+<p>
+Sena Frostbane moved like a ghost in the futuristic sprawl, seventeen years old but carrying a weight far beyond his years. His heart did not beat like others’. It throbbed with a hollow ache, a curse stitched into its core that silenced every spark of joy, warmth, and hope. He could feel only one thing: pain.
+</p>
 
-    <p>Memories teased the edges of his mind—fragmented flashes from the day the curse took hold. A relic, pulsing with dark light. An explosion of time unraveling. And then, emptiness.</p>
+<p>
+A child screamed somewhere nearby—caught beneath a malfunctioning drone’s arm. Without hesitation, Sena darted forward, ignoring the stab of agony slicing through his chest. With a swift motion, he disabled the drone, cradling the frightened boy as he disappeared into the crowd. No smile met his gaze, only the cold sting of suffering.
+</p>
 
-    <p>Tonight, the relic’s echo called to him again.</p>
+<p>
+What is happiness? he wondered, staring into the city’s dim glow. A word I have forgotten.
+</p>
 
-    <p>Beneath the city’s glittering facade, in the shadowed depths where outlaws and outcasts gathered, the Auction of Shadows was about to begin. Here, forbidden treasures from fractured timelines were bartered in whispers and glances. Sena moved through the crowd like a shadow, his sharp eyes scanning the displays.</p>
+<p>
+Memories teased the edges of his mind—fragmented flashes from the day the curse took hold. A relic, pulsing with dark light. An explosion of time unraveling. And then, emptiness.
+</p>
 
-    <p>When the final item was brought forward—a small obsidian chest inlaid with gold filigree and sealed with glowing runes—Sena’s breath caught. The air shifted. The compass inside thrummed with cursed energy, its needle spinning erratically.</p>
+<p>
+Tonight, the relic’s echo called to him again.
+</p>
 
-    <p>"Property of the Forgotten Sea," the auctioneer intoned. "Do not awaken."</p>
+<p>
+Beneath the city’s glittering facade, in the shadowed depths where outlaws and outcasts gathered, the Auction of Shadows was about to begin. Here, forbidden treasures from fractured timelines were bartered in whispers and glances. Sena moved through the crowd like a shadow, his sharp eyes scanning the displays.
+</p>
 
-    <p>Yet, Sena’s hand was already outstretched. The moment his fingers brushed the chest, a surge of pain exploded through his heart, sharper than ever before. But still, he took it.</p>
+<p>
+When the final item was brought forward—a small obsidian chest inlaid with gold filigree and sealed with glowing runes—Sena’s breath caught. The air shifted. The compass inside thrummed with cursed energy, its needle spinning erratically.
+</p>
 
-    <p>The compass, Kofa, bonded instantly. It hummed in his palm, alive with dark power. The world around him fractured—the auction hall dissolved into waves of shifting time. Walls became tides, faces turned to echoes, and the floor slipped beneath his feet.</p>
+<p>
+"Property of the Forgotten Sea," the auctioneer intoned. "Do not awaken."
+</p>
 
-    <p>His breath caught. Steel and neon vanished.</p>
+<p>
+Yet, Sena’s hand was already outstretched. The moment his fingers brushed the chest, a surge of pain exploded through his heart, sharper than ever before. But still, he took it.
+</p>
 
-    <p>The sea called.</p>
+<p>
+The compass, Kofa, bonded instantly. It hummed in his palm, alive with dark power. The world around him fractured—the auction hall dissolved into waves of shifting time. Walls became tides, faces turned to echoes, and the floor slipped beneath his feet.
+</p>
 
-    <p>When Sena opened his eyes, salt stung his lips. He lay on a rocky shore under a blazing sun that felt both strange and familiar. In his hand, Kofa vibrated wildly, its needle spinning toward a horizon unlike any he’d ever seen.</p>
+<p>
+His breath caught. Steel and neon vanished.
+</p>
 
-    <p>Islands—some wild and ancient, others glowing with future light—rose from the mist.</p>
+<p>
+The sea called.
+</p>
 
-    <p>Sena’s voice was a whisper against the crashing waves:<br/>
-    <em>“This isn’t my time.”</em></p>
-  </main>
+<p>
+When Sena opened his eyes, salt stung his lips. He lay on a rocky shore under a blazing sun that felt both strange and familiar. In his hand, Kofa vibrated wildly, its needle spinning toward a horizon unlike any he’d ever seen.
+</p>
 
-  <footer>
-    © 2025 Frostbane Novel. All Rights Reserved.
-  </footer>
+<p>
+Islands—some wild and ancient, others glowing with future light—rose from the mist.
+</p>
+
+<p>
+Sena’s voice was a whisper against the crashing waves:<br />
+<em>“This isn’t my time.”</em>
+</p>
+
+<!-- Back to Top Button -->
+<button class="neon-box" id="back-to-top" aria-label="Back to Top" title="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">▲</button>
+
+<script>
+  // Optional: show/hide back to top button on scroll
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+      backToTopBtn.style.display = 'block';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+  backToTopBtn.style.display = 'none';
+</script>
+
 </body>
 </html>
